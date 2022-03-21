@@ -65,21 +65,21 @@ const options = {
       for(var i=0;i<keys.length;i++)
 {
 
-   // console.log(body.rates)
+   console.log(body.rates)
 
     var newCurrency = new CurrencyToDollar({
          
         Currency:keys[i],
         DollarAmount:body.rates[keys[i]]});
-     //console.log(arr[i])
-
-    //  newCurrency.save((err,todo)=>{
-    //     if(err)
-    //     console.log(err);
-    //     //res.json(todo);
-    //     console.log(todo)
     
-    // })
+
+     newCurrency.save((err,Currency)=>{
+        if(err)
+        console.log(err);
+        //res.json(todo);
+        console.log(Currency)
+    
+    })
 }
   });
 
@@ -112,6 +112,20 @@ export const getAllCurrencyToDollar =(req,res)=>{
 
 }
 
+
+
+export const getCurrencyToDollarWithID =(req,res)=>{
+
+
+  CurrencyToDollar.find({id:req.body.id},(err,result)=>{
+      if(err)
+       console.log(err)
+       else 
+         res.json(result)
+
+  })
+
+}
 
 // all bit coins on count
 //

@@ -10,9 +10,11 @@ import routes from './routes/bcdfRoutes.js';
 //import {addAllCountries} from './controllers/bcdfController.js'
 
 const app= express();
-
 mongoose.Promise= global.Promise;
-mongoose.connect('mongodb://localhost/BCDF',{useNewUrlParser:true,useUnifiedTopology:true})
+
+ 
+mongoose.connect('mongodb+srv://Saheed22:Saheed22@cluster0.lirry.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+  ,{useNewUrlParser:true,useUnifiedTopology:true});
 
 
 app.use(cors())
